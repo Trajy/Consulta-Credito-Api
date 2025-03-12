@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: Consulta-Credito-Api
+  cloud:
+    config:
+      enabled: false
+    discovery:
+      enabled: false
+  zipkin:
+    enabled: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/consulta_credito
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+
+server:
+  port: 8090
+  servlet:
+    context-path: /api

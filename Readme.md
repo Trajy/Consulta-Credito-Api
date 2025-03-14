@@ -29,7 +29,7 @@ A aplicação possui o módulo para reutilização de codigo e implementação d
 - Configuração automatica para gerenciamento de exceptions e formatação para [RFC7807](https://datatracker.ietf.org/doc/html/rfc7807) (Norma para padronização de retorno de erros em Rest Apis).
 
 > [!IMPORTANT]
-> Uma sugestão de documentação desenvolvida utilizando Quarkus, porêm, os exemplos são aplicados de forma similar no Spring, pode ser encontrada em [Quarkus Base Architecture](https://github.com/Trajy/Quarkus-Base-Architecture?tab=readme-ov-file#quarkus-base-architecture).
+> Uma sugestão de documentação desenvolvida utilizando Quarkus, porêm, os exemplos são aplicados de forma similar no Spring, pode ser encontrada em [Trajy/Quarkus Base Architecture](https://github.com/Trajy/Quarkus-Base-Architecture?tab=readme-ov-file#quarkus-base-architecture).
 
 O módulo está no repositório [Trajy/Spring-Base-Architecture](https://github.com/Trajy/Spring-Api-Architecture), o módulo foi adicionado ao projeto utilizando Maven como gerenciador de dependencias.
 

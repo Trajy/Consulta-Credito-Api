@@ -1,4 +1,4 @@
-# Consulta Credito - Back-end
+# Consulta Credito - Backend
 
 Este repositório contêm o backend do sistema de [Consulta de Credito](https://github.com/Trajy/Desafio-Consulta-Credito). Deselvolvido utilizando Spring Framework.
 
@@ -7,6 +7,7 @@ Este repositório contêm o backend do sistema de [Consulta de Credito](https://
   - [Modulo DRY, Low Code, Code Reuse](#modulo-dry-low-code-code-reuse)
   - [Módulo no Projeto](#módulo-no-projeto)
   - [Tratamento de Erros](#tratamento-de-erros)
+  - [Documentação Automática com Swagger](#documentação-automática-com-swagger)
 
 ## Endpoints
 
@@ -68,5 +69,35 @@ public class AutoConfigurations {
 }
 ```
 
+Exemplo de resposta de erro.
 
+```json
+{
+    "status": "404",
+    "title": null,
+    "type": "/api/creditos/credito/12345",
+    "detail": "Credito not found for numeroCredito: 12345"
+}
+```
+
+## Documentação Automática com Swagger
+
+Para gerar a documentação automaticamente basta importar a classe de configuração e os endpoints serão documentados.
+
+O nome da aplicação sera obtido a partir da propriedade `spring.application.name` no arquivo `application.yml` ou `application.properties`
+
+```java
+package br.com.trajy.consultacreditoapi.config;
+
+import br.com.trajy.architecture.openapi.OpenApiCoreConfig;
+
+@Import({
+        OpenApiCoreConfig.class
+})
+@Configuration
+public class AutoConfigurations {
+
+}
+```
+basta acessar [localhost:8090/api/swagger-ui/index.html](localhost:8090/api/swagger-ui/index.html) com a applicação em execução e a ducumetação será carregada..
 

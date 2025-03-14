@@ -5,7 +5,6 @@ Este repositório contêm o backend do sistema de [Consulta de Credito](https://
 ## Sumário
   - [Endpoints](#endpoints)
   - [Modulo DRY, Low Code, Code Reuse](#modulo-dry-low-code-code-reuse)
-  - [Módulo no Projeto](#módulo-no-projeto)
   - [Tratamento de Erros](#tratamento-de-erros)
   - [Documentação Automática com Swagger](#documentação-automática-com-swagger)
 
@@ -17,7 +16,7 @@ Este repositório contêm o backend do sistema de [Consulta de Credito](https://
 | GET | /api/creditos/credito/{numeroCredito} | Retorna dados de credito a partir do numero de crédito |
 
 > [!IMPORTANT]
-> Documentação na integra sobre os end-points pode ser acessada ao executar o sistema em [localhost:8090/api/swagger-ui/index.html](http://localhost:8090/api/swagger-ui/index.html).
+> Documentação na integra sobre os end-points pode ser acessada ao executar o sistema em [http://localhost:8090/api/swagger-ui/index.html](http://localhost:8090/api/swagger-ui/index.html).
 >
 
 ## Modulo DRY, Low Code, Code Reuse
@@ -32,7 +31,6 @@ A aplicação possui o módulo para reutilização de codigo e implementação d
 > [!IMPORTANT]
 > Uma sugestão de documentação desenvolvida utilizando Quarkus, porêm, os exemplos são aplicados de forma similar no Spring, pode ser encontrada em [Quarkus Base Architecture](https://github.com/Trajy/Quarkus-Base-Architecture?tab=readme-ov-file#quarkus-base-architecture).
 
-## Módulo no Projeto
 O módulo está no repositório [Trajy/Spring-Base-Architecture](https://github.com/Trajy/Spring-Api-Architecture), o módulo foi adicionado ao projeto utilizando Maven como gerenciador de dependencias.
 
 ```xml
@@ -99,5 +97,5 @@ public class AutoConfigurations {
 
 }
 ```
-basta acessar [localhost:8090/api/swagger-ui/index.html](localhost:8090/api/swagger-ui/index.html) com a applicação em execução e a ducumetação será carregada..
+basta acessar [http://localhost:8090/api/swagger-ui/index.html](http://localhost:8090/api/swagger-ui/index.html) com a applicação em execução e a ducumetação será carregada..
 

@@ -3,10 +3,14 @@
 Este repositório contêm o backend do sistema de [Consulta de Credito](https://github.com/Trajy/Desafio-Consulta-Credito). Deselvolvido utilizando Spring Framework.
 
 ## Sumário
+  - [Como Executar o Projeto](#como-executar-o-projeto)
   - [Endpoints](#endpoints)
   - [Modulo DRY, Low Code, Code Reuse](#modulo-dry-low-code-code-reuse)
   - [Tratamento de Erros](#tratamento-de-erros)
   - [Documentação Automática com Swagger](#documentação-automática-com-swagger)
+  
+## Como Executar o Projeto
+O ambiente de desenvolvimento foi constituido utilizando containers Docker e Docker Compose, para detalhes sobre como executar o projeto vide a documentação no repositório principal [Desafio Consulta Crédito](https://github.com/Trajy/Desafio-Consulta-Credito).
 
 ## Endpoints
 

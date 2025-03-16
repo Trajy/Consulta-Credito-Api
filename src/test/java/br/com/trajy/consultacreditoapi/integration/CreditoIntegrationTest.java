@@ -120,5 +120,22 @@ class CreditoIntegrationTest {
                 .andDo(print());
     }
 
+    @Test
+    @DisplayName("Deve vefificar se as respostas de erro estão no formato da norma RFC7807")
+    void deveRespostasErroNoFormatoRFC7807() throws Exception {
+        //Arrange
+        String numeroCreditoNaoExistente = "1111222";
+
+        //Action
+        mockMvc.perform(get("/creditos/credito/{numeroNfse}", numeroCreditoNaoExistente))
+
+        //Assert
+                .andExpect(status().is4xxClientError())
+                .andExpect(jsonPath("$.type").hasJsonPath())
+                .andExpect(jsonPath("$.title").hasJsonPath())
+                .andExpect(jsonPath("$.status").hasJsonPath())
+                .andExpect(jsonPath("$.detail").hasJsonPath());
+    }
+
 }
 

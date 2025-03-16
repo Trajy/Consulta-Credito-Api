@@ -9,8 +9,10 @@ Este repositório contém o backend do sistema de [Consulta de Crédito](https:/
   - [Endpoints](#endpoints)
   - [Modulo DRY, Low Code, Code Reuse](#modulo-dry-low-code-code-reuse)
       - [O Módulo oferece suporte para:](#o-módulo-oferece-suporte-para)
+  - [Mensageria (Kafka)](#mensageria-kafka)
   - [Tratamento de Erros](#tratamento-de-erros)
   - [Documentação Automática com Swagger](#documentação-automática-com-swagger)
+  - [Testes Unitários e de Integração](#testes-unitários-e-de-integração)
   
 ## Como Executar o Projeto
 O ambiente de desenvolvimento foi constituído utilizando containers Docker e Docker Compose. Para detalhes sobre como executar o projeto, vide a documentação no repositório principal [Desafio Consulta Crédito](https://github.com/Trajy/Desafio-Consulta-Credito).
@@ -56,7 +58,14 @@ O módulo está no repositório [Trajy/Spring-Base-Architecture](https://github.
         </dependency>
     </dependencies>
 ```
+## Mensageria (Kafka)
+O serviço de mensageria foi implementado para coletar dados referentes as buscas e persistir no banco de dados. Para possibilitar uma futura análise dos dados, são armazenados:
+    
+- searchValue (Valor digitado na busca).
+- hasResult (se foram retornados resultados).
+- searchAt (Quando a busca foi realizada).
 
+Os dados são salvos na tabela `analytics` no banco de dados.
 
 ## Tratamento de Erros
 A configuração do gerenciador de exceptions pode ser feita de forma simples:
@@ -106,3 +115,22 @@ public class AutoConfigurations {
 ```
 Basta acessar [http://localhost:8090/api/swagger-ui/index.html](http://localhost:8090/api/swagger-ui/index.html) com a aplicação em execução e a documentação será carregada.
 
+## Testes Unitários e de Integração
+
+Os testes utilizam as bibliotecas Mokito e Junit. Estão cobertos os seguintes casos de teste:
+
+- Testes de Integração
+  - validação se os endpoints estão retornando os dados corretamente.
+  - validação dos retornos de erro no RFC7807.
+- Testes Unitários
+    - Lançamento correto de exceptions quando dados não são encontrados
+    - Verifica se a chamada para o método de envio da noticação pelo serviço de mensageria (Kafka) é realizada em casos de lançamento de exceptions.
+  
+> [!NOTE]
+> Para mais detalhes sobre a implementação vide os códigos de teste na íntegra: [Códigos de Teste](/src/test/java/br/com/trajy/consultacreditoapi/).
+
+Para executar os testes
+
+```
+./mvnw test
+```

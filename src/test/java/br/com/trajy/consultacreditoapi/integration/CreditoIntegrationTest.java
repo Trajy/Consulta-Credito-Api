@@ -34,6 +34,7 @@ class CreditoIntegrationTest {
     @DisplayName("Deve Retornar Dados de Credito Quando Informado o Numero de Credito")
     void deveRetornarDadosCreditoQuandoInformadoNumeroCredito() throws Exception {
 
+        //Arrange
         String numeroCredito = "123456";
         String querySql = "SELECT * FROM credito WHERE numero_credito = ?";
 
@@ -52,7 +53,10 @@ class CreditoIntegrationTest {
             return entity;
         }, numeroCredito);
 
+        //Action
         mockMvc.perform(get("/creditos/credito/{numeroCredito}", numeroCredito))
+
+        //Assert
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.numeroCredito").value(credito.getNumeroCredito()))
                 .andExpect(jsonPath("$.numeroNfse").value(credito.getNumeroNfse()))
@@ -70,6 +74,7 @@ class CreditoIntegrationTest {
     @DisplayName("Deve Retornar Lista Dados de Credito Quando Informado o da NumeroNfse")
     void deveRetornarListaDadosCreditoQuandoInformadoNumeroNfse() throws Exception {
 
+        //Arrange
         String numeroNfse = "7891011";
         String querySql = "SELECT * FROM credito WHERE numero_nfse = ?";
 
@@ -88,7 +93,10 @@ class CreditoIntegrationTest {
             return entity;
         }, numeroNfse);
 
+        //Action
         mockMvc.perform(get("/creditos/{numeroNfse}", numeroNfse))
+
+        //Assert
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").isArray())
                 .andExpect(jsonPath("$[0].numeroCredito").value(creditos.get(0).getNumeroCredito()))

@@ -1,41 +1,44 @@
 # Consulta Credito - Backend
 
-Este repositório contêm o backend do sistema de [Consulta de Credito](https://github.com/Trajy/Desafio-Consulta-Credito). Deselvolvido utilizando Spring Framework.
+Este repositório contém o backend do sistema de [Consulta de Crédito](https://github.com/Trajy/Desafio-Consulta-Credito), desenvolvido utilizando Spring Framework.
 
 ## Sumário
+- [Consulta Credito - Backend](#consulta-credito---backend)
+  - [Sumário](#sumário)
   - [Como Executar o Projeto](#como-executar-o-projeto)
   - [Endpoints](#endpoints)
   - [Modulo DRY, Low Code, Code Reuse](#modulo-dry-low-code-code-reuse)
+      - [O Módulo oferece suporte para:](#o-módulo-oferece-suporte-para)
   - [Tratamento de Erros](#tratamento-de-erros)
   - [Documentação Automática com Swagger](#documentação-automática-com-swagger)
   
 ## Como Executar o Projeto
-O ambiente de desenvolvimento foi constituido utilizando containers Docker e Docker Compose, para detalhes sobre como executar o projeto vide a documentação no repositório principal [Desafio Consulta Crédito](https://github.com/Trajy/Desafio-Consulta-Credito).
+O ambiente de desenvolvimento foi constituído utilizando containers Docker e Docker Compose. Para detalhes sobre como executar o projeto, vide a documentação no repositório principal [Desafio Consulta Crédito](https://github.com/Trajy/Desafio-Consulta-Credito).
 
 ## Endpoints
 
 | Metodo | Rota | Descrição |
 |--------|------|-----------|
-| GET | /api/creditos/{numeroNfse} | Retorna lista de dados de credito referentes ao numero da nfse |
-| GET | /api/creditos/credito/{numeroCredito} | Retorna dados de credito a partir do numero de crédito |
+| GET | /api/creditos/{numeroNfse} | Retorna lista de dados de crédito referentes ao número da nfse |
+| GET | /api/creditos/credito/{numeroCredito} | Retorna dados de crédito a partir do número de crédito |
 
 > [!IMPORTANT]
-> Documentação na integra sobre os end-points pode ser acessada ao executar o sistema em [http://localhost:8090/api/swagger-ui/index.html](http://localhost:8090/api/swagger-ui/index.html).
+> Documentação na íntegra sobre os end-points pode ser acessada ao executar o sistema em [http://localhost:8090/api/swagger-ui/index.html](http://localhost:8090/api/swagger-ui/index.html).
 >
 
 ## Modulo DRY, Low Code, Code Reuse
-A aplicação possui o módulo para reutilização de codigo e implementação dos padrões de projeto [Strategy](https://refactoring.guru/design-patterns/strategy) e [Template Method](https://refactoring.guru/design-patterns/template-method).
+A aplicação possui o módulo para reutilização de código e implementação dos padrões de projeto [Strategy](https://refactoring.guru/design-patterns/strategy) e [Template Method](https://refactoring.guru/design-patterns/template-method).
 
 #### O Módulo oferece suporte para:
 - Desenvolvimento de Arquitetura Hexagonal Limpa (Clean Code, KISS).
-- Implementação de CRUD com reutilização de código (fóco no desenvolvimento das regras de negócio).
-- Geração de documentação automatica utilizando Swagger.
-- Configuração automatica para gerenciamento de exceptions e formatação para [RFC7807](https://datatracker.ietf.org/doc/html/rfc7807) (Norma para padronização de retorno de erros em Rest Apis).
+- Implementação de CRUD com reutilização de código (foco no desenvolvimento das regras de negócio).
+- Geração de documentação automática utilizando Swagger.
+- Configuração automática para gerenciamento de exceptions e formatação para [RFC7807](https://datatracker.ietf.org/doc/html/rfc7807) (Norma para padronização de retorno de erros em Rest Apis).
 
 > [!IMPORTANT]
-> Uma sugestão de documentação desenvolvida utilizando Quarkus, porêm, os exemplos são aplicados de forma similar no Spring, pode ser encontrada em [Trajy/Quarkus Base Architecture](https://github.com/Trajy/Quarkus-Base-Architecture?tab=readme-ov-file#quarkus-base-architecture).
+> A documentação do módulo foi desenvolvida utilizando Quarkus, porém, os exemplos são aplicados de forma similar no Spring. Esta pode ser encontrada em [Trajy/Quarkus Base Architecture](https://github.com/Trajy/Quarkus-Base-Architecture?tab=readme-ov-file#quarkus-base-architecture).
 
-O módulo está no repositório [Trajy/Spring-Base-Architecture](https://github.com/Trajy/Spring-Api-Architecture), o módulo foi adicionado ao projeto utilizando Maven como gerenciador de dependencias.
+O módulo está no repositório [Trajy/Spring-Base-Architecture](https://github.com/Trajy/Spring-Api-Architecture) e foi adicionado ao projeto utilizando Maven como gerenciador de dependências.
 
 ```xml
     <repositories>
@@ -56,7 +59,7 @@ O módulo está no repositório [Trajy/Spring-Base-Architecture](https://github.
 
 
 ## Tratamento de Erros
-A configuração do gerenciador de exceptions pode ser feita de forma simples.
+A configuração do gerenciador de exceptions pode ser feita de forma simples:
 
 ```Java
 
@@ -71,7 +74,7 @@ public class AutoConfigurations {
 }
 ```
 
-Exemplo de resposta de erro.
+Exemplo de resposta de erro:
 
 ```json
 {
@@ -101,5 +104,5 @@ public class AutoConfigurations {
 
 }
 ```
-basta acessar [http://localhost:8090/api/swagger-ui/index.html](http://localhost:8090/api/swagger-ui/index.html) com a applicação em execução e a ducumetação será carregada..
+Basta acessar [http://localhost:8090/api/swagger-ui/index.html](http://localhost:8090/api/swagger-ui/index.html) com a aplicação em execução e a documentação será carregada.
 
